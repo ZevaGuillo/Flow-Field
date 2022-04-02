@@ -17,6 +17,28 @@
     height: 100vh;
   }
 
+  i:hover{
+    color: #d6abf3;
+  }
+
+  .header{
+    display: flex;
+
+  }
+  .header h1{
+    flex: 1;
+  }
+
+  .flecha{
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  a{
+    text-decoration: none;
+  }
+
   input[type='color']:active {
     transition: transform 0.05s ease-in-out;
     transform: scale(1);
@@ -63,23 +85,55 @@
     background: var(--first-color);
   }
 
+  select{
+    outline: 0;
+    box-shadow: none;
+    border: 0;
+    background-color: #CB91F2;
+    flex: 1;
+    padding: 0 .5rem;
+    color:#272727;
+    cursor: pointer;
+    display: flex;
+    width: 80px;
+    height: 20px;
+    line-height: 3;
+    overflow: hidden;
+    border-radius: 25px;
+  }
+  option{
+    color: #232323;
+  }
+  .angleMode{
+    gap: 1rem;
+    display: flex;
+  }
+  
   .menu{
     margin: 15px;
     padding: 20px;
     position: absolute;
     background: transparent;
     min-width: 20rem;
+    height: auto;
     display: flex;
-    justify-content: center;
     flex-direction: column;
     gap: 2rem;
     border-radius: 10px;
     background: rgba(61, 61, 61, 0.8);
     box-shadow:  8px 8px 16px #232323,
              -8px -8px 16px #272727;
+    transition:.5s all ease-in-out;
+    overflow: hidden;
   }
   input{
     margin-left: 10px;
+  }
+
+  .controls{
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
   }
 
   footer{

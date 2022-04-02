@@ -2,6 +2,8 @@ const inputDensity = document.getElementById('Density');
 const inputStrokeWeight = document.getElementById('StrokeWeight');
 const inputAngle = document.getElementById('Angle');
 const inputColor = document.getElementById('inputColor');
+const inputNoiseDetail = document.getElementById('noiseDetail');
+const inputAngleMode = document.getElementById('angle-mode');
 
 let density = 50;
 
@@ -9,9 +11,33 @@ let angleValue = 10;
 
 let StrokeWeight = 3;
 
+let noiseDetailI = 1;
+
+//let angleModeI = RADIANS o DEGREES 
+
+//let angleModeI = (inputAngleMode.value === "Radians")?RADIANS:DEGREES;
+
+inputAngleMode.addEventListener('change', (e)=>{
+  points = []
+  console.log(inputAngleMode.value)
+  if (inputAngleMode.value === "Radians"){
+    angleMode(RADIANS);
+  }else{
+    angleMode(DEGREES);
+  }
+  
+  setup()
+})
+
+inputNoiseDetail.addEventListener('input',(e)=>{
+  points = []
+  noiseDetailI =  map(parseInt(inputNoiseDetail.value),0,100,1,7);
+  setup()
+})
+
 inputDensity.addEventListener('input',(e)=>{
   points = []
-  density =  map(parseInt(inputDensity.value),0,100,10,90);
+  density =  map(parseInt(inputDensity.value),0,100,40,80);
   setup()
 })
 
@@ -34,8 +60,7 @@ function setup() {
   
   createCanvas(windowWidth, windowHeight);
   background(30);
-  angleMode(DEGREES);
-  noiseDetail(1);
+  noiseDetail(noiseDetailI);
   
   
   space = width / density;
@@ -58,11 +83,16 @@ function draw() {
   noStroke();
   for(let i in points){
     
-    let r = map(points[i].x, 0, width, 50, 255);
-    let g = map(points[i].y, 0, height, 50, 255);
-    let b = map(points[i].x, 0, width, 255, 50);
+    let inColorR = color(inputColor.value).levels[0]
+    let inColorG = color(inputColor.value).levels[1]
+    let inColorB = color(inputColor.value).levels[2]
+
+    let auxRandomColor = colorGenerate([inColorR,inColorG,inColorB]);
+
+    let r = auxRandomColor[0]
+    let g = auxRandomColor[1]
+    let b = auxRandomColor[2]
     let alpha = map(dist(width /2, height / 2, points[i].x,points[i].y), 0, windowWidth/2, 200, 0);
-    
     
     fill(r,g,b, alpha);
 
@@ -70,7 +100,7 @@ function draw() {
     
     let angle = map(noise(points[i].x * mult, points[i].y * mult) * PI, 0, 2, 0, mapAngleValue);
     
-
+    
     
     points[i].add(createVector(cos(angle), sin(angle)))
     
@@ -107,4 +137,28 @@ function windowResized() {
   setup();
   resizeCanvas(windowWidth, windowHeight);
   background(30);
+}
+
+function colorGenerate(color = [random(0,255),random(0,255), random(0,255)]){
+  let rgb = color;
+  
+  let rMax = color[0];
+  let gMax = color[1];
+  let bMax = color[2];
+  let rMin, gMin, bMin;
+
+  let i = 120; 
+
+  if(rMax >= i && gMax >= i && bMax >= i){
+    rMin = rMax - i;
+    gMin = gMax - i;
+    bMin = bMax - i;  
+  }else{
+    rMin = rMax + i;
+    gMin = gMax + i;
+    bMin = bMax + i;
+  }
+  rgb = [random(rMin,rMax),random(gMin,gMax), random(bMin,bMax)];
+  return rgb;
+
 }

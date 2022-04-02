@@ -7,17 +7,25 @@
   <title>Flow Flied</title>
   <script src="p5.js"></script>
   <!-- <script src="../addons/p5.sound.js"></script> -->
-  
-  <script src="sketch.js" defer></script>
   <script src="view.js" defer></script>
+  <script src="sketch.js" defer></script>
   <script src="https://kit.fontawesome.com/b8200729a2.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <div class="menu">
-    <h1>Flow Flied</h1>
+  <div class="menu" id="menu">
+    <div class="header">
+      <h1>Flow Flied</h1>
+
+      <div class="flecha">
+        <!--<i class="fas fa-angle-double-down"></i>-->
+        <i class="fas fa-angle-double-up"></i>
+      </div>
+    </div>
+    
+    
     <label for="StrokeWeight">
       Stroke Weight
       <input type="range" id="StrokeWeight" value="100">
@@ -33,15 +41,38 @@
       <input type="range" id="Density" value="50">
     </label>
 
-    <!-- <label for="inputColor">
+    <label for="noiseDetail">
+      Noise Detail
+      <input type="range" id="noiseDetail" value="0">
+    </label>
+
+    <label for="angleMode" class="angleMode">
+      Angle Mode
+        <select name="angle-mode" id="angle-mode">
+          <option value="Radians" selected>Radians</option>
+          <option value="Degrees">Degrees</option>
+        </select>
+      
+    </label>
+
+    <label for="inputColor">
       Color Tone
       <input type="color" id="inputColor" value="#FFE0E0">
     </label>
-     -->
+     
+    <div class="controls">
+      <div class="pause">
+        <i class="fas fa-pause"></i>
+      </div>
+      <div class="snap">
+        <i class="fas fa-camera"></i>
+      </div>
+    </div>
+
   </div>
   <footer>
-    <p>Copyright © 2022 ZevaGuillo</p>
-    <a href="https://github.com/ZevaGuillo">
+    <p>Copyright © 2022 </p>
+    <a href="https://github.com/ZevaGuillo">ZevaGuillo
         <i class="fab fa-github" aria-hidden="true"></i>
     </a>
   </footer>
