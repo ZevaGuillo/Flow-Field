@@ -5,6 +5,11 @@ const i = document.querySelector('.flecha i');
 const pause = document.querySelector('.controls .pause');
 const snap = document.querySelector('.controls .snap');
 
+const backgroundHeader = document.querySelector('.background-header');
+const backgroundContent = document.querySelector('.background-content');
+const colorListEl = document.querySelectorAll('.background-content div'); 
+
+
 flechaEl.addEventListener('click',()=>{
     console.log(i,i.classList[1])
     if(i.classList[1] === 'fa-angle-double-up'){
@@ -32,4 +37,26 @@ pause.addEventListener('click',(e)=>{
 
 snap.addEventListener('click',(e)=>{
     saveCanvas('flowfile','png');
+})
+
+backgroundHeader.addEventListener('click',(e)=>{
+    let display = backgroundContent.style.display;
+    if(display === 'none'){
+        backgroundHeader.children[1].classList.remove('fa-angle-down');
+        backgroundHeader.children[1].classList.add('fa-angle-up');
+        backgroundContent.style.display= 'flex';        
+    }else{
+        backgroundContent.style.display= 'none';
+        backgroundHeader.children[1].classList.add('fa-angle-down');
+        backgroundHeader.children[1].classList.remove('fa-angle-up');
+    }
+});
+
+colorListEl.forEach(element =>{
+    element.addEventListener('click',(e)=>{
+        points = []
+        backgroundcolor = element.textContent;
+        setup()
+        background(backgroundcolor);
+    })
 })

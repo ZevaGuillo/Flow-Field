@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;500;700&display=swap');
   :root{
     --first-color: #CB91F2;
+    --light-color: #F2F2F2;
+    --dark-color: #261426;
+    --aux1-color: #676273;
+    --aux2-color: #DEF2C9;
   }
   *{
     margin: 0;
@@ -58,7 +62,7 @@
   
   input[type='color']::-webkit-color-swatch {
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   }
 
@@ -111,18 +115,20 @@
     margin: 15px;
     padding: 20px;
     position: absolute;
-    background: transparent;
     min-width: 20rem;
     height: auto;
     display: flex;
     flex-direction: column;
     gap: 2rem;
     border-radius: 10px;
-    background: rgba(61, 61, 61, 0.8);
-    box-shadow:  8px 8px 16px #232323,
-             -8px -8px 16px #272727;
     transition:.5s all ease-in-out;
     overflow: hidden;
+    background: linear-gradient(135deg, rgba(0, 0, 0, .5), rgba(0, 0, 0, 0.4));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
   }
   input{
     margin-left: 10px;
@@ -132,6 +138,68 @@
     display: flex;
     gap: 2rem;
     font-size: 1.5rem;
+  }
+
+  .background-control{
+    transition: .1s all ease-in-out;
+  }
+  .background-control:hover{
+    transform: scale(1.05);
+  }
+  .background-header{
+    display: flex;
+    width: 100%;
+  }
+
+  .background-header label{
+    flex: 1;
+  }
+
+  .background-header i{
+    width: 100px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .background-content{
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    display:none;
+  }
+
+  .background-content div{
+    border-radius: 10px;
+    background-color: #CB91F2;
+    width: 3rem;
+    height: 1.5rem;
+    color: transparent;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none; 
+    border: none;
+  }
+
+  .background-content div:hover{
+    transform: scale(1.05);
+    border: #CB91F2 2px solid;
+  }
+
+  .background-content .light{
+    background-color: var(--light-color);
+  }
+
+  .background-content .dark{
+    background-color: var(--dark-color);
+  }
+
+  .background-content .aux1{
+    background-color: var(--aux1-color);
+  }
+
+  .background-content .aux2{
+    background-color: var(--aux2-color);
   }
 
   footer{

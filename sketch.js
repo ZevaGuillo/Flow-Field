@@ -13,9 +13,7 @@ let StrokeWeight = 3;
 
 let noiseDetailI = 1;
 
-//let angleModeI = RADIANS o DEGREES 
-
-//let angleModeI = (inputAngleMode.value === "Radians")?RADIANS:DEGREES;
+let backgroundcolor = '#261426'
 
 inputAngleMode.addEventListener('change', (e)=>{
   points = []
@@ -59,10 +57,9 @@ let mult, space;
 function setup() {
   
   createCanvas(windowWidth, windowHeight);
-  background(30);
   noiseDetail(noiseDetailI);
   
-  
+  background(backgroundcolor);
   space = width / density;
   
   for(let x=0; x < width; x += space){
@@ -136,7 +133,7 @@ function windowResized() {
   points = []
   setup();
   resizeCanvas(windowWidth, windowHeight);
-  background(30);
+  background(backgroundcolor);
 }
 
 function colorGenerate(color = [random(0,255),random(0,255), random(0,255)]){
