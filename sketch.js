@@ -53,13 +53,16 @@ inputStrokeWeight.addEventListener('input',(e)=>{
 
 let points = [];
 let mult, space;
-
+let song
+function preload(){
+  song = loadSound('music.mp3');
+}
 function setup() {
   
   createCanvas(windowWidth, windowHeight);
   noiseDetail(noiseDetailI);
-  
   background(backgroundcolor);
+  song.play();
   space = width / density;
   
   for(let x=0; x < width; x += space){
