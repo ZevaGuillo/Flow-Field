@@ -10,6 +10,7 @@ const backgroundContent = document.querySelector('.background-content');
 const colorListEl = document.querySelectorAll('.background-content div'); 
 
 
+
 flechaEl.addEventListener('click',()=>{
     console.log(i,i.classList[1])
     if(i.classList[1] === 'fa-angle-double-up'){

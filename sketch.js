@@ -5,11 +5,11 @@ const inputColor = document.getElementById('inputColor');
 const inputNoiseDetail = document.getElementById('noiseDetail');
 const inputAngleMode = document.getElementById('angle-mode');
 
-let density = 50;
+let density = 40;
 
-let angleValue = 10;
+let angleValue = 0;
 
-let StrokeWeight = 3;
+let StrokeWeight = 0.5;
 
 let noiseDetailI = 1;
 
@@ -54,15 +54,12 @@ inputStrokeWeight.addEventListener('input',(e)=>{
 let points = [];
 let mult, space;
 let song
-function preload(){
-  song = loadSound('music.mp3');
-}
+
 function setup() {
   
   createCanvas(windowWidth, windowHeight);
   noiseDetail(noiseDetailI);
   background(backgroundcolor);
-  song.play();
   space = width / density;
   
   for(let x=0; x < width; x += space){
