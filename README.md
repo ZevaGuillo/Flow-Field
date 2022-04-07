@@ -1,7 +1,7 @@
 # Flow Field
 Generador de un FlowFlied basado en particulas creado con P5.js
 
-[Live Demo](https://zevaguillo.github.io/Flow-Flied/) 😎
+[Live Demo](https://zevaguillo.github.io/Flow-Field/) 😎
 
 ## Preview
 
