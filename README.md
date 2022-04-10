@@ -1,5 +1,5 @@
 # Flow Field
-Generador de un FlowField basado en particulas creado con P5.js
+Generador de un FlowField basado en partículas creado con P5.js
 
 [Live Demo](https://zevaguillo.github.io/Flow-Field/) 😎
 
